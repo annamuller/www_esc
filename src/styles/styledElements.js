@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainCotainer = styled.div`
 
-    height: 45rem;
+    height: 100%;
     margin: auto;
     width: 20%;
     padding: 4rem;
@@ -26,6 +26,7 @@ export const NavBar = styled.div`
 
 export const StartPage = styled.div`
     text-align: center;
+    height: 40rem;
 `;
 
 export const BlueButton = styled.button`
@@ -78,6 +79,15 @@ export const BlueHeading = styled.h1`
 
 
 export const CountriesPage = styled.div`
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+`;
+
+export const RatePage = styled.div`
 
 
     display: flex;

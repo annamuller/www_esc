@@ -9,7 +9,7 @@ import {
     CountryList
  } from "../styles/styledElements";
 
-const countries = ["🇫🇮  Finland", "🇩🇪  Germany", "🇸🇪  Sweden", "🇪🇪  Estonia", "🇪🇸  Spain"];
+const countries = ["🇫🇮  Finland", "🇩🇪  Germany", "🇸🇪  Sweden", "🇪🇪  Estonia", "🇪🇸  Spain", "🇪🇸  Spain", "🇪🇸  Spain"];
 const countryItems = countries.map((countrie) =>
   <li>{countrie}<PinkButton>Rate</PinkButton></li>
   

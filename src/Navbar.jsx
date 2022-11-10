@@ -19,6 +19,9 @@ function Navbar() {
             <li>
                 < NavLink to="/share" >share</ NavLink>
             </li>
+            <li>
+                < NavLink to="/rate" >rate</ NavLink>
+            </li>
 
         </ul>
             
