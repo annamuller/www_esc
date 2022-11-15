@@ -22,8 +22,18 @@ const listOfCountries = await getDocs(collection(firestore, "countries"));
 var performers = [];
 
 function initPerformers() {
+    var points = "0,0,0,0"
     listOfCountries.forEach((doc) => {
-        performers.push({"id": doc.id, "country": doc.get("name"), "flag": doc.get("flag"), "desc": doc.get("desc"), "points": "0,0,0,0" })
+        var c = document.cookie.split(";");
+        c.forEach((id) => {
+            if (id.includes(doc.id)){
+                var show = id.split("=");
+                points = show[1];
+            } else {
+                points = "0,0,0,0";
+            }
+        })
+        performers.push({"id": doc.id, "country": doc.get("name"), "flag": doc.get("flag"), "desc": doc.get("desc"), "points": points })
     })
 }
 
@@ -47,12 +57,8 @@ function initCookie() {
         listOfCountries.forEach((doc) => {
             var country = doc.id;
             setCookie(country, "=0,0,0,0");
-         /*if (!(Object.keys(countryArr).includes(country))){
-                countryArr[country] = "0,0,0,0";
-            }*/
         })
     }
-    //console.log(countryArr)
 }
 
 // Function to rate countries. Will update the the cookie for the selected country with updated points.
@@ -83,11 +89,12 @@ function rate(id, show, sing, song) {
     setCookie(id, toCook)
 }
 
-// Function to rank all the countries. Returns an Array pairs of countries and scores sorted by total points.
-// Pairs are "country" and "score".
+// Function to rank all the countries. Returns an Array of pairs of country ids, country names, total points, and
+// country flags sorted by total points.
+// Pairs are "id", "points", "country", "flag".
 function rank() {
     var container = [];
-    //Ranking by total points only for now
+    //Ranking by total points only for now. Points taken from cookies
     const nations = document.cookie.split(";");
     nations.forEach((c) => {
         var performer = c.split("=");
@@ -103,8 +110,6 @@ function rank() {
 
     })
     container = container.sort(function (a,b) {return a.points - b.points}).reverse();
-    //performers = performers.sort(function (a,b) {return a.points - b.points}).reverse();
-    //console.log(container)
     return container;
 }
 
