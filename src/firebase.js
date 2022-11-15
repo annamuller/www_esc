@@ -1,5 +1,5 @@
 import { initializeApp } from /*"firebase/app"*/ "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-import { getFirestore, collection, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 
 
 const firebaseApp = {
@@ -23,7 +23,7 @@ var performers = [];
 
 function initPerformers() {
     listOfCountries.forEach((doc) => {
-        performers.push({"id": doc.id, "country": doc.get("name"), "flag": doc.get("flag"), "desc": doc.get("desc") })
+        performers.push({"id": doc.id, "country": doc.get("name"), "flag": doc.get("flag"), "desc": doc.get("desc"), "points": "0,0,0,0" })
     })
 }
 
@@ -78,6 +78,8 @@ function rate(id, show, sing, song) {
     }
     var points = show + "," + sing + "," + song + "," + total;
     var toCook = "=" + points
+    var c = performers.find((country => country.id === id));
+    c.points = show + "," + sing + "," + song + "," + total.toString();
     setCookie(id, toCook)
 }
 
@@ -91,25 +93,21 @@ function rank() {
         var performer = c.split("=");
         var id = performer[0].replace(/\s/g, "");
         var points = performer[1];
+        var c = performers.find((country => country.id === id));
+        //c.points = points;
         points = points.split(",");
         points = Number(points[points.length - 1]);
-        var c = performers.find((country => country.id == id));
-        var name = c.name;
+        var name = c.country;
         var flag = c.flag;
-        container.push({"id": id, "score": points, "country": name, "flag": flag})
+        container.push({"id": id, "points": points, "country": name, "flag": flag})
+
     })
-    container = container.sort(function (a,b) {return a.score - b.score}).reverse();
+    container = container.sort(function (a,b) {return a.points - b.points}).reverse();
+    //performers = performers.sort(function (a,b) {return a.points - b.points}).reverse();
     //console.log(container)
     return container;
 }
 
-function getPoints(id){
-    var points = document.cookie.split(";");
-    points.forEach((c) => {
-        var check = c.split("=");
-
-    })
-}
 
 export {rank, rate, setCookie, performers}
 
@@ -117,7 +115,12 @@ initCookie();
 rate("fin", 4, 5, 6);
 rate("den", 3, 6, 2);
 rate("swe", 1, 1, 1);
-console.log(rank())
+rate("uk", 6, 5, 4);
+rate("ger", 6, 9, 8);
+rate("ity", 1, 2, 3);
+rate("spn", 1, 0, 2);
+rate("ukr", 10, 20, 30);
+console.log(performers);
 
 /*
 function getCountries() {
