@@ -116,11 +116,13 @@ rate("fin", 4, 5, 6);
 rate("den", 3, 6, 2);
 rate("swe", 1, 1, 1);
 rate("uk", 6, 5, 4);
-rate("ger", 6, 9, 8);
-rate("ity", 1, 2, 3);
-rate("spn", 1, 0, 2);
-rate("ukr", 10, 20, 30);
-console.log(performers);
+rate("ger", 0, 0, 0);
+rate("ity", 0, 0, 0);
+rate("spn", 0, 0, 0);
+rate("ukr", 0, 0, 0);
+rate("pol", 0, 0, 0);
+rate("gre", 0, 0, 0);
+
 
 /*
 function getCountries() {

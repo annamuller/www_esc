@@ -9,21 +9,32 @@ import {
  } from "../styles/styledElements";
 
 const top5List = new Array();
+const bottom5List = new Array();
+var topNro = 1;
+var bottomNro = rank().length-4;
 
-rank().map(function(country) {
-    if(country.score > 0)
-        top5List.push(country);
+rank().slice(0, 5).map(function(country) {
+    if(country.points > 0)
+        top5List.push("#" + topNro + " " + country.country);
+    else
+        top5List.push("#" + topNro + " " +  "???");
+    topNro += 1
 });
 
-console.log(top5List);
+rank().slice(Math.max(rank().length - 5, 0)).map(function(country) {
+    if(country.points > 0)
+        bottom5List.push("#" + bottomNro + " " + country.country);
+    else
+        bottom5List.push("#" + bottomNro + " " + "???");
+    bottomNro += 1
+});
 
-
-const top5 = rank().slice(0, 5).map((country) =>
-  <li>{country.country} </li>
+const top5 = top5List.map((country) =>
+  <li key={country}>{country}</li>
 );
 
-const bottom5 = rank().slice(Math.max(rank().length - 5, 0)).map((country) =>
-  <li>{country.country} </li>
+const bottom5 = bottom5List.map((country) =>
+  <li key={country}>{country} </li>
 );
 
 
@@ -36,12 +47,12 @@ export default function Share() {
                 <BlueHeading>My ESC rankings</BlueHeading>
 
                 <CountryList>
-                    <PinkHeading>Top 5</PinkHeading>
+                    <PinkHeading>Top countries</PinkHeading>
                     {top5} 
                 </CountryList>
 
                 <CountryList>
-                    <PinkHeading>Bottom 5</PinkHeading>
+                    <PinkHeading>Bottom countries</PinkHeading>
                     {bottom5} 
                 </CountryList>
                 

@@ -12,6 +12,8 @@ export default function Rate() {
         <>
         <RatePage>
             <BlueHeading>Rate: X</BlueHeading>
+
+            
             
 
         </RatePage>
