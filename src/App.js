@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import Countries from "./pages/countries";
 import Rate from "./pages/rate";
 import Share from "./pages/share";
+import { performers } from './firebase.js';
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
         <Routes>
             <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="countries" element={<Countries />} />
-            <Route path="rate" element={<Rate/>} />
-            <Route path="share" element={<Share />} />
+            <Route path="/countries" element={<Countries />} />
+            <Route path="/rate" element={<Rate/>}  />
+            <Route path="/rate/:id" element={<Rate countries={performers} />} />
+            <Route path="/share" element={<Share />} />
           </Route>
         </Routes>
     </BrowserRouter>

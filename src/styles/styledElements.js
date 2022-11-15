@@ -63,9 +63,9 @@ export const PinkButton = styled.button`
     top: 239px;
     background: #EB5ADF;
     border-radius: 22px;
-    border: none;
     color: white;
     font-weight: 800;
+    border: none;
 `;
 
 export const GreenButton = styled.button`
@@ -73,9 +73,11 @@ export const GreenButton = styled.button`
     height: 44px;
     left: 254px;
     top: 239px;
-
+    border: none;
     background: #7BF788;
     border-radius: 22px;
+    color: white;
+    font-weight: 800;
 `;
 
 
@@ -146,6 +148,31 @@ export const CountryList = styled.ul`
         color: #1C1D50;
         margin: 2rem 0rem;
     }
+
+`;
+
+export const PlusMinus = styled.div`
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+
+`;
+
+export const ButtonRound = styled.button`
+
+    width: 44px;
+    height: 44px;
+    left: 332px;
+    top: 330px;
+
+    background: #0B4CF0;
+    border-radius: 22px;
+    border: none;
+    color: white;
+    font-weight: 800;
+
 
 `;
 
