@@ -1,5 +1,5 @@
 import { initializeApp } from /*"firebase/app"*/ "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-import { getFirestore, collection, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getFirestore, collection, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 
 
 const firebaseApp = {
@@ -19,6 +19,17 @@ const firebaseApp = {
 const app = initializeApp(firebaseApp);
 const firestore = getFirestore(app);
 const listOfCountries = await getDocs(collection(firestore, "countries"));
+var performers = [];
+
+function initPerformers() {
+    listOfCountries.forEach((doc) => {
+        performers.push({"id": doc.id, "name": doc.get("name"), "flag": doc.get("flag") })
+    })
+    console.log(performers)
+}
+
+initPerformers();
+
 
 // Function for setting the cookies. Sets expiration date to today +30 days
 function setCookie(id, cValue) {
@@ -90,7 +101,7 @@ function rank() {
     return container;
 }
 
-export {rank, rate, setCookie}
+export {rank, rate, setCookie, performers}
 
 initCookie();
 
