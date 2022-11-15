@@ -87,6 +87,16 @@ export const BlueHeading = styled.h1`
 `;
 
 
+export const PinkHeading = styled.h2`
+
+    font: Sans-serif;
+    font-weight: 750;
+    font-size: 30px;
+
+    color: #EB5ADF;
+`;
+
+
 export const CountriesPage = styled.div`
 
 
@@ -105,6 +115,15 @@ export const RatePage = styled.div`
   
 `;
 
+
+export const SharePage = styled.div`
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+`;
 
 export const CountryList = styled.ul`
 

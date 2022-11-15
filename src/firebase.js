@@ -94,7 +94,7 @@ function rank() {
         points = points.split(",");
         points = Number(points[points.length - 1]);
         var c = performers.find((country => country.id == id));
-        var name = c.name;
+        var name = c.country;
         var flag = c.flag;
         container.push({"id": id, "score": points, "country": name, "flag": flag})
     })

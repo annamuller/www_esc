@@ -9,9 +9,9 @@ import {
     CountryList
  } from "../styles/styledElements";
 
-const countryItems = performers.map((countrie) =>
-  <li>{countrie.flag}    {countrie.name} <PinkButton>Rate</PinkButton></li>
-  
+
+const countryItems = performers.map((country) =>
+  <li>{country.flag}    {country.country} <PinkButton>Rate</PinkButton></li>
 );
 
 export default function Countries() {
