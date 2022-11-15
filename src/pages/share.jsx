@@ -1,5 +1,6 @@
 import React from 'react';
-import { setOfCountries } from '../firebase.js';
+import { setOfCountries, rank } from '../firebase.js';
+
 
 export default function Share() {
 
