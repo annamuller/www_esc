@@ -9,8 +9,6 @@ import {
     CountryList
  } from "../styles/styledElements";
 
-console.log(performers.map((countrie) => countrie.name))
-
 const countryItems = performers.map((countrie) =>
   <li>{countrie.flag}    {countrie.name} <PinkButton>Rate</PinkButton></li>
   

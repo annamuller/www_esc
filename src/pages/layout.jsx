@@ -3,8 +3,11 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar";
 import { 
     MainCotainer,
-    LayOut
+    LayOut,
+    Logo
  } from "../styles/styledElements";
+
+ import logo from "../images/logo.png"
 
 
 
@@ -14,6 +17,7 @@ const Layout = () => {
       <LayOut>
             <Navbar/>
             <MainCotainer>
+            <Logo src={logo}></Logo>
                  < Outlet />
             </MainCotainer>
       </LayOut>

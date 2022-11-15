@@ -5,9 +5,18 @@ export const MainCotainer = styled.div`
     height: 100%;
     margin: auto;
     width: 20%;
-    padding: 4rem;
+    padding: 2rem 3rem  3rem  3rem;
     background: white;
 `;
+
+
+export const Logo = styled.img`
+
+    width: 4rem;
+
+`;
+
+
 
 export const LayOut = styled.div`
     height: 100%;

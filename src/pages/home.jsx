@@ -1,6 +1,7 @@
 import React from 'react';
 import { setOfCountries } from '../firebase.js';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import logo from '../images/logo.png';
 
 import { 
     StartPage,
@@ -11,8 +12,7 @@ export default function Home() {
     
     return(
         <StartPage>
-            <h1>ESC jotain</h1>
-            
+            <img src={logo}></img>
             <NavLink to="/countries">
                 <BlueButton>Start ranking</BlueButton>
             </NavLink>
