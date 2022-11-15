@@ -16,6 +16,11 @@ export const Logo = styled.img`
 
 `;
 
+export const MainLogo = styled.img`
+
+width: 10rem;
+
+`;
 
 
 export const LayOut = styled.div`

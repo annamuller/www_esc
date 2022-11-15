@@ -5,14 +5,15 @@ import logo from '../images/logo.png';
 
 import { 
     StartPage,
-    BlueButton
+    BlueButton,
+    MainLogo
  } from "../styles/styledElements";
 
 export default function Home() {
     
     return(
         <StartPage>
-            <img src={logo}></img>
+            <MainLogo src={logo}></MainLogo>
             <NavLink to="/countries">
                 <BlueButton>Start ranking</BlueButton>
             </NavLink>

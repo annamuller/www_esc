@@ -11,7 +11,7 @@ import {
 
 
 const countryItems = performers.map((country) =>
-  <li>{country.flag}    {country.country} <PinkButton>Rate</PinkButton></li>
+  <li  key={country.country}>{country.flag}    {country.country} <PinkButton>Rate</PinkButton></li>
 );
 
 export default function Countries() {
