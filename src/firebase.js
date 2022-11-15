@@ -23,9 +23,8 @@ var performers = [];
 
 function initPerformers() {
     listOfCountries.forEach((doc) => {
-        performers.push({"id": doc.id, "name": doc.get("name"), "flag": doc.get("flag") })
+        performers.push({"id": doc.id, "country": doc.get("name"), "flag": doc.get("flag"), "desc": doc.get("desc") })
     })
-    console.log(performers)
 }
 
 initPerformers();
@@ -57,29 +56,29 @@ function initCookie() {
 }
 
 // Function to rate countries. Will update the the cookie for the selected country with updated points.
-function rate(valtio) {
+function rate(id, show, sing, song) {
     //var maa = valtio.toString();
     var total = Number(0);
-    var show = document.getElementById("show").value.toString();
+    var show = show.toString();//document.getElementById("show").value.toString();
     if (show.length === 0) {
         show = "0"}
         else {
             total += Number(show);
         }
-    var sing = document.getElementById("sing").value.toString();
+    var sing = sing.toString();//document.getElementById("sing").value.toString();
     if (sing.length === 0) {
         sing = "0"}
         else {
             total += Number(sing);
         }
-    var song = document.getElementById("song").value.toString();
+    var song = song.toString(); //document.getElementById("song").value.toString();
     if (song.length === 0) {song = "0"}
     else {
         total += Number(song);
     }
     var points = show + "," + sing + "," + song + "," + total;
     var toCook = "=" + points
-    setCookie(valtio, toCook)
+    setCookie(id, toCook)
 }
 
 // Function to rank all the countries. Returns an Array pairs of countries and scores sorted by total points.
@@ -88,22 +87,37 @@ function rank() {
     var container = [];
     //Ranking by total points only for now
     const nations = document.cookie.split(";");
-    nations.forEach((c) =>{
+    nations.forEach((c) => {
         var performer = c.split("=");
         var id = performer[0].replace(/\s/g, "");
         var points = performer[1];
         points = points.split(",");
         points = Number(points[points.length - 1]);
-        container.push({"country": id, "score": points})
+        var c = performers.find((country => country.id == id));
+        var name = c.name;
+        var flag = c.flag;
+        container.push({"id": id, "score": points, "country": name, "flag": flag})
     })
     container = container.sort(function (a,b) {return a.score - b.score}).reverse();
-    console.log(container)
+    //console.log(container)
     return container;
+}
+
+function getPoints(id){
+    var points = document.cookie.split(";");
+    points.forEach((c) => {
+        var check = c.split("=");
+
+    })
 }
 
 export {rank, rate, setCookie, performers}
 
 initCookie();
+rate("fin", 4, 5, 6);
+rate("den", 3, 6, 2);
+rate("swe", 1, 1, 1);
+console.log(rank())
 
 /*
 function getCountries() {
