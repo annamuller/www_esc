@@ -117,17 +117,6 @@ function rank() {
 export {rank, rate, setCookie, performers}
 
 initCookie();
-rate("fin", 4, 5, 6);
-rate("den", 3, 6, 2);
-rate("swe", 1, 1, 1);
-rate("uk", 6, 5, 4);
-rate("ger", 0, 0, 0);
-rate("ity", 0, 0, 0);
-rate("spn", 0, 0, 0);
-rate("ukr", 0, 0, 0);
-rate("pol", 0, 0, 0);
-rate("gre", 0, 0, 0);
-
 
 /*
 function getCountries() {

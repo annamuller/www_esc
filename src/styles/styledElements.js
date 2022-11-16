@@ -44,6 +44,7 @@ export const StartPage = styled.div`
 `;
 
 export const BlueButton = styled.button`
+
     width: 100%;
     height: 66px;
     left: 39px;
@@ -54,8 +55,26 @@ export const BlueButton = styled.button`
     color: white;
     font-weight: 800;
     font-size: 30px;
+    margin: 1rem 0rem;
     
 `;
+
+export const BigPinkButton = styled.button`
+
+    width: 100%;
+    height: 66px;
+    left: 39px;
+    top: 529px;
+    background: #EB5ADF;
+    border-radius: 33px;
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 1rem 0rem;
+    
+`;
+
 export const PinkButton = styled.button`
     width: 96px;
     height: 44px;
@@ -83,12 +102,12 @@ export const GreenButton = styled.button`
 
 export const BlueHeading = styled.h1`
 
-    margin: 0rem 0rem 5rem 0rem;
+    margin: 1rem 0rem 3rem 0rem;
 
     font: Sans-serif;
     font-weight: 750;
     font-size: 50px;
-    line-height: 65px;
+    line-height: 55px;
 
     color: #0B4CF0;
 `;
@@ -153,9 +172,27 @@ export const CountryList = styled.ul`
 
 export const PlusMinus = styled.div`
 
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .count {
+        width: 44px;
+        height: 38px;
+        background-color: #EEEEEE;
+        border-radius: 22px;
+        text-align: center;
+        padding-top: 6px;
+        font-size: 25px;
+        font-weight: 700;
+    }
   
 
 `;
@@ -171,9 +208,19 @@ export const ButtonRound = styled.button`
     border-radius: 22px;
     border: none;
     color: white;
-    font-weight: 800;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 0rem 0.5rem;
 
 
 `;
+
+export const RateForm = styled.div`
+
+    margin: 5rem 0rem;
+
+
+`;
+
 
 

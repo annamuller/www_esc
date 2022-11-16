@@ -15,7 +15,6 @@ function App() {
             <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/countries" element={<Countries />} />
-            <Route path="/rate" element={<Rate/>}  />
             <Route path="/rate/:id" element={<Rate countries={performers} />} />
             <Route path="/share" element={<Share />} />
           </Route>
