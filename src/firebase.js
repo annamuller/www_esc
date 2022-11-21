@@ -73,7 +73,7 @@ function getPoints(id) {
     countries.forEach((country) => {
         if (country.includes(id)){
             var points = country.split("=");
-            console.log(points[1])
+            //console.log(points[1])
             return points[1]
         }
     })
@@ -138,6 +138,7 @@ function rank() {
 export {rank, rate, setCookie, resetCookie, getPoints, performers}
 
 initCookie();
+getPoints("fin");
 /*
 function getCountries() {
     var countries = [];
