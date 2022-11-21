@@ -121,6 +121,8 @@ function rank() {
         var p = performers.find((country => country.id === id));
         console.log(p)
         //c.points = points;
+        var c = performers.find((country => country.id === id));
+        console.log(c.country);
         points = points.split(",");
         points = Number(points[points.length - 1]);
         var name = p.country;
