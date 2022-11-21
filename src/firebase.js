@@ -37,7 +37,7 @@ function initPerformers() {
     })
 }
 
-initPerformers();
+if (!performers.length) {initPerformers()};
 
 
 // Function for setting the cookies. Sets expiration date to today +30 days
