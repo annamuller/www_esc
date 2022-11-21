@@ -37,7 +37,7 @@ function initPerformers() {
     })
 }
 
-initPerformers();
+if (!performers.length) {initPerformers()};
 
 
 // Function for setting the cookies. Sets expiration date to today +30 days
@@ -71,12 +71,14 @@ function resetCookie() {
 
 function getPoints(id) {
     var countries = document.cookie.split(";");
+    var palautus = ""
     countries.forEach((country) => {
         if (country.includes(id)){
             var points = country.split("=");
-            return points[1]
+            palautus = points[1];
         }
     })
+    return palautus;
 }
 
 // Function to rate countries. Will update the the cookie for the selected country with updated points.
@@ -118,11 +120,12 @@ function rank() {
         var performer = c.split("=");
         var id = performer[0].replace(/\s/g, "");
         var points = performer[1];
-        var c = performers.find((country => country.id === id));
+        var p = performers.find((country => country.id === id));
+        //c.points = points;
         points = points.split(",");
         points = Number(points[points.length - 1]);
-        var name = c.country;
-        var flag = c.flag;
+        var name = p.country;
+        var flag = p.flag;
         container.push({"id": id, "points": points, "country": name, "flag": flag})
 
     })
@@ -134,7 +137,6 @@ function rank() {
 export {rank, rate, setCookie, getPoints, performers}
 
 initCookie();
-
 /*
 function getCountries() {
     var countries = [];
