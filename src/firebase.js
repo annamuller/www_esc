@@ -70,13 +70,14 @@ function resetCookie() {
 
 function getPoints(id) {
     var countries = document.cookie.split(";");
+    var palautus = ""
     countries.forEach((country) => {
         if (country.includes(id)){
             var points = country.split("=");
-            //console.log(points[1])
-            return points[1]
+            palautus = points[1];
         }
     })
+    return palautus;
 }
 
 // Function to rate countries. Will update the the cookie for the selected country with updated points.
@@ -119,10 +120,7 @@ function rank() {
         var id = performer[0].replace(/\s/g, "");
         var points = performer[1];
         var p = performers.find((country => country.id === id));
-        console.log(p)
         //c.points = points;
-        var c = performers.find((country => country.id === id));
-        console.log(c.country);
         points = points.split(",");
         points = Number(points[points.length - 1]);
         var name = p.country;
@@ -138,7 +136,6 @@ function rank() {
 export {rank, rate, setCookie, resetCookie, getPoints, performers}
 
 initCookie();
-getPoints("fin");
 /*
 function getCountries() {
     var countries = [];
