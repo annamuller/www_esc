@@ -61,24 +61,6 @@ function initCookie() {
     }
 }
 
-function resetCookie() {
-    listOfCountries.forEach((doc) => {
-        var country = doc.id;
-        setCookie(country, "=0,0,0,0");
-    })
-}
-
-function getPoints(id) {
-    var countries = document.cookie.split(";");
-    countries.forEach((country) => {
-        if (country.includes(id)){
-            var points = country.split("=");
-            console.log(points[1])
-            return points[1]
-        }
-    })
-}
-
 // Function to rate countries. Will update the the cookie for the selected country with updated points.
 function rate(id, show, sing, song) {
     //var maa = valtio.toString();
@@ -118,14 +100,11 @@ function rank() {
         var performer = c.split("=");
         var id = performer[0].replace(/\s/g, "");
         var points = performer[1];
-        var p = performers.find((country => country.id === id));
-        console.log(p)
-        //c.points = points;
         var c = performers.find((country => country.id === id));
         points = points.split(",");
         points = Number(points[points.length - 1]);
-        var name = p.country;
-        var flag = p.flag;
+        var name = c.country;
+        var flag = c.flag;
         container.push({"id": id, "points": points, "country": name, "flag": flag})
 
     })
@@ -134,9 +113,10 @@ function rank() {
 }
 
 
-export {rank, rate, setCookie, resetCookie, getPoints, performers}
+export {rank, rate, setCookie, getPoints, performers}
 
 initCookie();
+
 /*
 function getCountries() {
     var countries = [];

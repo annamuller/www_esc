@@ -1,5 +1,5 @@
 import React from 'react';
-import { listOfCountries, performers } from '../firebase.js';
+import { getPoints, performers } from '../firebase.js';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import { 
     BlueHeading,
@@ -9,6 +9,9 @@ import {
     BlueButton,
     CountryList
  } from "../styles/styledElements";
+ 
+
+console.log(getPoints("gbr"));
 
 
 const countryItems = performers.map(function(country) {
