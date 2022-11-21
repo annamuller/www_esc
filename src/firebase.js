@@ -101,7 +101,6 @@ function rank() {
         var id = performer[0].replace(/\s/g, "");
         var points = performer[1];
         var c = performers.find((country => country.id === id));
-        console.log(c.country);
         points = points.split(",");
         points = Number(points[points.length - 1]);
         var name = c.country;

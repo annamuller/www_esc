@@ -1,5 +1,5 @@
 import React from 'react';
-import { setOfCountries, performers } from '../firebase.js';
+import { listOfCountries, performers } from '../firebase.js';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import { 
     BlueHeading,
@@ -10,8 +10,6 @@ import {
     CountryList
  } from "../styles/styledElements";
 
-
-console.log(performers);
 
 const countryItems = performers.map(function(country) {
     const stats = country.points.split(",")[0] + "+" + country.points.split(",")[1]  + "+" + country.points.split(",")[2]
