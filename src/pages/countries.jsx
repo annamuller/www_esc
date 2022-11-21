@@ -11,6 +11,8 @@ import {
  } from "../styles/styledElements";
 
 
+console.log(performers);
+
 const countryItems = performers.map(function(country) {
     const stats = country.points.split(",")[0] + "+" + country.points.split(",")[1]  + "+" + country.points.split(",")[2]
     if(country.points.split(",")[3] == 0)
