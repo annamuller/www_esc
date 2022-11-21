@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { rate, performers } from '../firebase.js';
-import { NavLink } from "react-router-dom";
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import { 
     RatePage,
     BlueButton,
@@ -27,51 +27,58 @@ export default function Rate() {
     let [countSing, setCountSing] = useState(currentSing);
     let [countSong, setCountSong] = useState(currentSong);
 
-    function incrementCountShow() { 
-        if (countShow + 1 <= 6) {
-            countShow = countShow + 1
-            setCountShow(countShow)
-        } else window.alert("You can give maximum of 6 points");
+    function incrementCountShow() {
+        countShow = countShow + 1;
+        if (countShow <= 6) 
+            setCountShow(countShow);
+        else 
+            window.alert("sometext");
     }
     
     function decrementCountShow() {
-        if (countShow - 1  > 0) {
-            countShow = countShow - 1;
+        countShow = countShow - 1;
+        if (countShow >= 0) 
             setCountShow(countShow);
-        } else window.alert("You cannot give negative points");
+        else 
+            window.alert("sometext");
 
     }
 
     function incrementCountSing() {
-        if (countSing + 1 <= 6) {
-            countSing = countSing + 1;
+        countSing = countSing + 1;
+        if (countSing <= 6) 
             setCountSing(countSing);
-        } else window.alert("You can give maximum of 6 points");
+        else 
+            window.alert("sometext");
     }
     
-    function decrementCountSing() {     
-        if (countSing - 1 > 0) {
-            countSing = countSing - 1;
+    function decrementCountSing() {
+        countSing = countSing - 1;
+        if (countSing >= 0) 
             setCountSing(countSing);
-        } else window.alert("You cannot give negative points");
+        else 
+            window.alert("sometext");
     }
 
-    function incrementCountSong() {     
-        if (countSong + 1 <= 6) {
-            countSong = countSong + 1;
+    function incrementCountSong() {
+        countSong = countSong + 1;
+        if (countSong <= 6) 
             setCountSong(countSong);
-        } else window.alert("You can give maximum of 6 points");
+        else 
+            window.alert("sometext");
     }
     
     function decrementCountSong() {
-        if (countSong - 1 > 0) {
-            countSong = countSong - 1;
+        countSong = countSong - 1;
+        if (countSong >= 0) 
             setCountSong(countSong);
-        } else window.alert("You cannot give negative points");
+        else 
+            window.alert("sometext");
     }
 
     function rateIt() {
         rate({ id }.id, countShow, countSing, countSong);
+        console.log(performers);
     }
 
     return (
