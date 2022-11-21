@@ -1,11 +1,12 @@
 import React from 'react';
 import { setOfCountries, rank } from '../firebase.js';
-
+import logo from "../images/logo.png"
 import { 
     SharePage,
     BlueHeading,
     CountryList,
-    PinkHeading
+    PinkHeading,
+    Logo
  } from "../styles/styledElements";
 
 const top5List = new Array();
@@ -44,6 +45,7 @@ export default function Share() {
     return(
         <>
             <SharePage>
+                <Logo src={logo}></Logo>
                 <BlueHeading>My ESC rankings</BlueHeading>
 
                 <CountryList>

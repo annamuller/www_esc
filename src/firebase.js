@@ -58,7 +58,25 @@ function initCookie() {
             var country = doc.id;
             setCookie(country, "=0,0,0,0");
         })
+        
     }
+}
+
+function resetCookie() {
+    listOfCountries.forEach((doc) => {
+        var country = doc.id;
+        setCookie(country, "=0,0,0,0");
+    })
+}
+
+function getPoints(id) {
+    var countries = document.cookie.split(";");
+    countries.forEach((country) => {
+        if (country.includes(id)){
+            var points = country.split("=");
+            return points[1]
+        }
+    })
 }
 
 // Function to rate countries. Will update the the cookie for the selected country with updated points.

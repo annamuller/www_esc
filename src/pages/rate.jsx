@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { rate, performers } from '../firebase.js';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import logo from "../images/logo.png"
 import { 
     RatePage,
     BlueButton,
@@ -9,7 +10,8 @@ import {
     PlusMinus,
     ButtonRound,
     BigPinkButton,
-    RateForm
+    RateForm,
+    Logo
  } from "../styles/styledElements";
 
 export default function Rate() {
@@ -84,6 +86,7 @@ export default function Rate() {
     return (
         <>
         <RatePage>
+        <Logo src={logo}></Logo>
             <BlueHeading>Rate: { countryNow[0].country }</BlueHeading>
             <h2> { countryNow[0].desc } </h2>
 

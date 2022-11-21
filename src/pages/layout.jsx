@@ -17,8 +17,7 @@ const Layout = () => {
       <LayOut>
             <Navbar/>
             <MainCotainer>
-            <Logo src={logo}></Logo>
-                 < Outlet />
+            < Outlet />
             </MainCotainer>
       </LayOut>
 

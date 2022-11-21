@@ -1,24 +1,23 @@
 import styled from "styled-components";
+import bg from "../images/bg.png";
 
 export const MainCotainer = styled.div`
-
     height: 100%;
     margin: auto;
-    width: 20%;
-    padding: 2rem 3rem  3rem  3rem;
+    width: 28%;
     background: white;
 `;
 
 
 export const Logo = styled.img`
-
-    width: 4rem;
+    width: 6rem;
+    margin-bottom: 1rem;
 
 `;
 
 export const MainLogo = styled.img`
-
-width: 10rem;
+    width: 16rem;
+    margin-top: 70%;
 
 `;
 
@@ -40,12 +39,18 @@ export const NavBar = styled.div`
 
 export const StartPage = styled.div`
     text-align: center;
-    height: 40rem;
+    height: 50rem;
+    background-image: url(${bg});
+
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 `;
 
 export const BlueButton = styled.button`
 
-    width: 100%;
+    width: 70%;
     height: 66px;
     left: 39px;
     top: 529px;
@@ -129,6 +134,7 @@ export const CountriesPage = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 2rem 3rem  3rem  3rem;
   
 `;
 
@@ -138,6 +144,7 @@ export const RatePage = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 2rem 3rem  3rem  3rem;
   
 `;
 
@@ -148,6 +155,7 @@ export const SharePage = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 2rem 3rem  3rem  3rem;
   
 `;
 
