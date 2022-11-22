@@ -1,12 +1,17 @@
 import React from 'react';
 import { setOfCountries, rank } from '../firebase.js';
+import { NavLink } from "react-router-dom";
 import logo from "../images/logo.png"
+import share from "../images/share.png"
 import { 
     SharePage,
     BlueHeading,
     CountryList,
     PinkHeading,
-    Logo
+    Logo,
+    BackButton,
+    WhiteButton,
+    ShareSection
  } from "../styles/styledElements";
 
 const top5List = new Array();
@@ -45,7 +50,10 @@ export default function Share() {
     return(
         <>
             <SharePage>
-                <Logo src={logo}></Logo>
+            <Logo src={logo}></Logo>
+                <NavLink to="/countries">
+                    <BackButton>go back</BackButton>
+                </NavLink>
                 <BlueHeading>My ESC rankings</BlueHeading>
 
                 <CountryList>
@@ -57,11 +65,20 @@ export default function Share() {
                     <PinkHeading>Bottom countries</PinkHeading>
                     {bottom5} 
                 </CountryList>
+
                 
 
             </SharePage>
+
+            <ShareSection>
+
+
+                <NavLink to="/">
+                    <WhiteButton><img src={share} alt="img" />Share</WhiteButton>
+                </NavLink>
+
+            </ShareSection>
         </>
     )
 
 };
-

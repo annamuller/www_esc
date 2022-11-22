@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import bg from "../images/bg.png";
+import stats_bg from "../images/stats_bg.png";
 
 export const MainCotainer = styled.div`
 
@@ -8,7 +9,7 @@ export const MainCotainer = styled.div`
     }
     height: 100%;
     margin: auto;
-    width: 28%;
+    width: 30%;
     background: white;
 `;
 
@@ -21,7 +22,7 @@ export const Logo = styled.img`
 
 export const MainLogo = styled.img`
     width: 16rem;
-    margin-top: 90%;
+    margin-top: 70%;
 
 `;
 
@@ -123,6 +124,30 @@ export const GreenButton = styled.button`
 `;
 
 
+export const BackButton = styled.button`
+
+    border: none;
+    background: none;
+    text-align: center;
+    align-self: center;
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+`;
+
+
+export const WhiteButton = styled.button`
+
+    border: none;
+    background: none;
+    text-align: center;
+
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+`;
+
+
 export const BlueHeading = styled.h1`
 
     margin: 1rem 0rem 3rem 0rem;
@@ -169,11 +194,16 @@ export const RatePage = styled.div`
 
 export const SharePage = styled.div`
 
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 2rem 3rem  3rem  3rem;
+
+
+    background-image: url(${stats_bg});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   
 `;
 
@@ -238,14 +268,28 @@ export const ButtonRound = styled.button`
     font-weight: 900;
     margin: 0rem 0.5rem;
 
-
 `;
 
 export const RateForm = styled.div`
 
-    margin: 5rem 0rem;
+background: #0B4CF0;
 
 
+`;
+
+export const ShareSection = styled.div`
+
+    background: #1C1D50;
+    height: 1.5rem;
+    padding: 1rem;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+
+    img {
+        width: 20px;
+        margin-right: 5px;
+    }
 `;
 
 
