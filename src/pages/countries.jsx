@@ -15,9 +15,18 @@ import {
 
 
 const countryItems = performers.map(function(country) {
-    console.log(country.id);
-    const stats = country.points.split(",")[0] + "+" + country.points.split(",")[1]  + "+" + country.points.split(",")[2]
-    if(country.points.split(",")[3] == 0)
+
+    
+
+    const countryNowCurrentPoints = getPoints(country.id).split(",");
+
+
+ 
+    const stats = countryNowCurrentPoints[0] + "+" + countryNowCurrentPoints[1] + "+" + countryNowCurrentPoints[2];
+
+    console.log(stats)
+
+    if(getPoints(country.id).split(",")[3] == 0)
         return  <li  key={country.country}>{country.flag} {country.country}   <NavLink to={`/rate/${country.id}`} ><PinkButton>Rate</PinkButton> </NavLink> </li>
     else 
         return <li  key={country.country}>{country.flag} {country.country} <NavLink to={`/rate/${country.id}`} ><GreenButton>{stats}</GreenButton>  </NavLink></li>

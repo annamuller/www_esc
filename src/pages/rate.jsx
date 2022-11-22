@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
-import { rate, performers } from '../firebase.js';
+import { rate, performers, getPoints } from '../firebase.js';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import logo from "../images/logo.png"
 import { 
@@ -19,7 +19,7 @@ export default function Rate() {
     const { id } = useParams();
 
     const countryNow = performers.filter(x => x.id == { id }.id);
-    const countryNowCurrentPoints = countryNow[0].points.split(",");
+    const countryNowCurrentPoints = getPoints({ id }.id).split(",");
 
     const currentShow = parseInt(countryNowCurrentPoints[0]);
     const currentSing = parseInt(countryNowCurrentPoints[1]);
@@ -30,52 +30,45 @@ export default function Rate() {
     let [countSong, setCountSong] = useState(currentSong);
 
     function incrementCountShow() {
-        countShow = countShow + 1;
-        if (countShow <= 6) 
+        if (countShow + 1 <= 4) {
+            countShow = countShow + 1;
             setCountShow(countShow);
-        else 
-            window.alert("sometext");
+        } else window.alert("sometext");
     }
     
-    function decrementCountShow() {
-        countShow = countShow - 1;
-        if (countShow >= 0) 
+    function decrementCountShow() { 
+        if (countShow - 1 >= 0) {
+            countShow = countShow - 1;
             setCountShow(countShow);
-        else 
-            window.alert("sometext");
-
+        } else window.alert("sometext");
     }
 
-    function incrementCountSing() {
-        countSing = countSing + 1;
-        if (countSing <= 6) 
+    function incrementCountSing() {    
+        if (countSing + 1 <= 4) {
+            countSing = countSing + 1;
             setCountSing(countSing);
-        else 
-            window.alert("sometext");
+        } else  window.alert("sometext");
     }
     
     function decrementCountSing() {
-        countSing = countSing - 1;
-        if (countSing >= 0) 
+        if (countSing - 1 >= 0) {
+            countSing = countSing - 1;
             setCountSing(countSing);
-        else 
-            window.alert("sometext");
+        } else window.alert("sometext");
     }
 
     function incrementCountSong() {
-        countSong = countSong + 1;
-        if (countSong <= 6) 
+        if (countSong + 1 <= 4) {
+            countSong = countSong + 1;
             setCountSong(countSong);
-        else 
-            window.alert("sometext");
+        } else window.alert("sometext");
     }
     
-    function decrementCountSong() {
-        countSong = countSong - 1;
-        if (countSong >= 0) 
+    function decrementCountSong() {  
+        if (countSong - 1 >= 0) {
+            countSong = countSong - 1;
             setCountSong(countSong);
-        else 
-            window.alert("sometext");
+        } else window.alert("sometext");
     }
 
     function rateIt() {
@@ -86,7 +79,7 @@ export default function Rate() {
     return (
         <>
         <RatePage>
-        <Logo src={logo}></Logo>
+            
             <BlueHeading>Rate: { countryNow[0].country }</BlueHeading>
             <h2> { countryNow[0].desc } </h2>
 

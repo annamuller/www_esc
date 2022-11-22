@@ -2,6 +2,10 @@ import styled from "styled-components";
 import bg from "../images/bg.png";
 
 export const MainCotainer = styled.div`
+
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+    }
     height: 100%;
     margin: auto;
     width: 28%;
@@ -17,15 +21,14 @@ export const Logo = styled.img`
 
 export const MainLogo = styled.img`
     width: 16rem;
-    margin-top: 70%;
+    margin-top: 90%;
 
 `;
 
 
 export const LayOut = styled.div`
     height: 100%;
-    background: papayawhip;
-    padding: 1em;
+    background: lightgray;
 `;
 
 export const NavBar = styled.div`
@@ -39,16 +42,31 @@ export const NavBar = styled.div`
 
 export const StartPage = styled.div`
     text-align: center;
-    height: 50rem;
+    height: 60rem;
     background-image: url(${bg});
-
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 `;
 
 export const BlueButton = styled.button`
+
+    width: 100%;
+    height: 66px;
+    left: 39px;
+    top: 529px;
+    background: #0B4CF0;
+    border-radius: 33px;
+    border: none;
+    color: white;
+    font-weight: 800;
+    font-size: 30px;
+    margin: 1rem 0rem;
+    
+`;
+
+
+export const BlueButtonStart = styled.button`
 
     width: 70%;
     height: 66px;
@@ -60,7 +78,7 @@ export const BlueButton = styled.button`
     color: white;
     font-weight: 800;
     font-size: 30px;
-    margin: 1rem 0rem;
+    margin: 3rem 0rem;
     
 `;
 

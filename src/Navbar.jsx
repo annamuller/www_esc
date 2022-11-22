@@ -9,18 +9,7 @@ function Navbar() {
   return (
       <NavBar>
    
-        <ul>
-            <li>
-                < NavLink to="/" >home</ NavLink>
-            </li>
-            <li>
-                < NavLink to="/countries" > countries</ NavLink>
-            </li>
-            <li>
-                < NavLink to="/share" >share</ NavLink>
-            </li>
 
-        </ul>
             
 
       </NavBar>

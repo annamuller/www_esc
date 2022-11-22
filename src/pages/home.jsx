@@ -6,7 +6,8 @@ import logo from '../images/logo.png';
 import { 
     StartPage,
     BlueButton,
-    MainLogo
+    MainLogo,
+    BlueButtonStart
  } from "../styles/styledElements";
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
         <StartPage>
             <MainLogo src={logo}></MainLogo>
             <NavLink to="/countries">
-                <BlueButton>Start ranking</BlueButton>
+                <BlueButtonStart>Start ranking</BlueButtonStart>
             </NavLink>
         </StartPage>
     )
