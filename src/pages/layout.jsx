@@ -3,11 +3,10 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar";
 import { 
     MainCotainer,
-    LayOut,
-    Logo
+    LayOut
  } from "../styles/styledElements";
 
- import logo from "../images/logo.png"
+
 
 
 

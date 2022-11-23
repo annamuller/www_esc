@@ -4,15 +4,21 @@ import stats_bg from "../images/stats_bg.png";
 
 export const MainCotainer = styled.div`
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
         width: 100%;
     }
     height: 100%;
     margin: auto;
     width: 30%;
     background: white;
+
 `;
 
+export const Nav = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`;
 
 export const Logo = styled.img`
     width: 6rem;
@@ -22,8 +28,10 @@ export const Logo = styled.img`
 
 export const MainLogo = styled.img`
     width: 16rem;
-    margin-top: 70%;
-
+    margin-top: 85%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 
@@ -34,16 +42,23 @@ export const LayOut = styled.div`
 
 export const NavBar = styled.div`
 
-
     li {
         list-style-type: none;
     }
 
 `;
 
+
+export const Text = styled.h2`
+
+    color:  #1C1D50;
+`;
+
 export const StartPage = styled.div`
     text-align: center;
     height: 60rem;
+    display: flex;
+    flex-direction: column;
     background-image: url(${bg});
     background-position: center;
     background-repeat: no-repeat;
@@ -124,15 +139,10 @@ export const GreenButton = styled.button`
 `;
 
 
-export const BackButton = styled.button`
+export const BackButton = styled.img`
 
-    border: none;
-    background: none;
-    text-align: center;
-    align-self: center;
-    color: white;
-    font-weight: 800;
-    font-size: 20px;
+    width: 2rem;
+
 `;
 
 
@@ -182,7 +192,6 @@ export const CountriesPage = styled.div`
 `;
 
 export const RatePage = styled.div`
-
 
     display: flex;
     flex-direction: column;
@@ -272,7 +281,7 @@ export const ButtonRound = styled.button`
 
 export const RateForm = styled.div`
 
-background: #0B4CF0;
+    margin: 5rem 0rem;
 
 
 `;

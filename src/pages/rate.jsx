@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { rate, performers, getPoints } from '../firebase.js';
-import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, NavLink, useLocation, useNavigate } from "react-router-dom";
+import back from "../images/back.png"
 import logo from "../images/logo.png"
 import { 
     RatePage,
@@ -11,7 +12,10 @@ import {
     ButtonRound,
     BigPinkButton,
     RateForm,
-    Logo
+    Logo,
+    BackButton,
+    Nav,
+    Text
  } from "../styles/styledElements";
 
 export default function Rate() {
@@ -33,59 +37,65 @@ export default function Rate() {
         if (countShow + 1 <= 4) {
             countShow = countShow + 1;
             setCountShow(countShow);
-        } else window.alert("sometext");
-    }
+        } else window.alert("You can give a maximum of 4 points to each category");
+    };
     
     function decrementCountShow() { 
         if (countShow - 1 >= 0) {
             countShow = countShow - 1;
             setCountShow(countShow);
-        } else window.alert("sometext");
-    }
+        } else window.alert("You cannot give negative points");
+    };
 
     function incrementCountSing() {    
         if (countSing + 1 <= 4) {
             countSing = countSing + 1;
             setCountSing(countSing);
-        } else  window.alert("sometext");
-    }
+        } else  window.alert("You can give a maximum of 4 points to each category");
+    };
     
     function decrementCountSing() {
         if (countSing - 1 >= 0) {
             countSing = countSing - 1;
             setCountSing(countSing);
-        } else window.alert("sometext");
-    }
+        } else window.alert("You cannot give negative points");
+    };
 
     function incrementCountSong() {
         if (countSong + 1 <= 4) {
             countSong = countSong + 1;
             setCountSong(countSong);
-        } else window.alert("sometext");
-    }
+        } else window.alert("You can give a maximum of 4 points to each category");
+    };
     
     function decrementCountSong() {  
         if (countSong - 1 >= 0) {
             countSong = countSong - 1;
             setCountSong(countSong);
-        } else window.alert("sometext");
-    }
+        } else window.alert("You cannot give negative points");
+    };
 
     function rateIt() {
         rate({ id }.id, countShow, countSing, countSong);
-        console.log(performers);
-    }
-
+    };
+    
     return (
         <>
         <RatePage>
+
+            <Nav>
+                <NavLink to="/countries">
+                    <BackButton src={back}></BackButton>
+                </NavLink>
+                <Logo src={logo}></Logo>
+            </Nav>
             
             <BlueHeading>Rate: { countryNow[0].country }</BlueHeading>
-            <h2> { countryNow[0].desc } </h2>
+            <Text> { countryNow[0].desc } </Text>
 
             <RateForm>
                 <PlusMinus>
-                    <h2>Show ✨</h2>
+                    <Text>Show ✨</Text>
                     <div className="buttons">
                         <ButtonRound onClick={decrementCountShow}>-</ButtonRound >
                         <div className="count" >{countShow}</div>
@@ -93,7 +103,7 @@ export default function Rate() {
                     </div>    
                 </PlusMinus>
                 <PlusMinus>
-                    <h2>Singing 🎤</h2>
+                    <Text>Singing 🎤</Text>
                     <div className="buttons">
                         <ButtonRound onClick={decrementCountSing}>-</ButtonRound >
                         <div className="count" >{countSing}</div>
@@ -101,7 +111,7 @@ export default function Rate() {
                     </div>
                 </PlusMinus>
                 <PlusMinus> 
-                    <h2>Song 🎵</h2>
+                    <Text>Song 🎵</Text>
                     <div className="buttons">
                         <ButtonRound  onClick={decrementCountSong}>-</ButtonRound >
                         <div className="count" >{countSong}</div>
@@ -115,7 +125,7 @@ export default function Rate() {
             </NavLink>
             
             <NavLink to="/share">
-                <BlueButton onClick={rateIt}>My stats</BlueButton>
+                <BlueButton onClick={rateIt}> My stats</BlueButton>
             </NavLink>
             
 

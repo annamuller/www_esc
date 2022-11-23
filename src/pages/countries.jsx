@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getPoints, performers } from '../firebase.js';
-import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { 
     BlueHeading,
     CountriesPage,
@@ -8,42 +8,53 @@ import {
     GreenButton,
     BlueButton,
     CountryList,
-    Logo
+    Logo,
+    Nav,
+    BackButton
  } from "../styles/styledElements";
  import logo from "../images/logo.png"
-
-
-
-const countryItems = performers.map(function(country) {
-
-    
-
-    const countryNowCurrentPoints = getPoints(country.id).split(",");
-
-
- 
-    const stats = countryNowCurrentPoints[0] + "+" + countryNowCurrentPoints[1] + "+" + countryNowCurrentPoints[2];
-
-    console.log(stats)
-
-    if(getPoints(country.id).split(",")[3] == 0)
-        return  <li  key={country.country}>{country.flag} {country.country}   <NavLink to={`/rate/${country.id}`} ><PinkButton>Rate</PinkButton> </NavLink> </li>
-    else 
-        return <li  key={country.country}>{country.flag} {country.country} <NavLink to={`/rate/${country.id}`} ><GreenButton>{stats}</GreenButton>  </NavLink></li>
-      
-});
-
+ import back from "../images/back.png"
 
 export default function Countries() {
+
+    function SetCountry(country)  {
+
+        const countryNowCurrentPoints = getPoints(country.id).split(",");
+        const stats = countryNowCurrentPoints[0] + "+" + countryNowCurrentPoints[1] + "+" + countryNowCurrentPoints[2];
+    
+        if(getPoints(country.id).split(",")[3] == 0) {
+            return (
+                <li  key={country.country}>{country.flag} {country.country}   
+                   <NavLink to={`/rate/${country.id}`} ><PinkButton>Rate</PinkButton> </NavLink> 
+                </li>
+            );
+        } else  {
+            return (
+                <li  key={country.country}>{country.flag} {country.country} 
+                  <NavLink to={`/rate/${country.id}`} ><GreenButton>{stats}</GreenButton>  </NavLink>
+                </li>
+            );
+        }     
+    };
+
+ 
+
+
+  
     
     return(
         <CountriesPage>
-            <Logo src={logo}></Logo>
+             <Nav>
+                <NavLink to="/">
+                    <BackButton src={back}></BackButton>
+                </NavLink>
+                <Logo src={logo}></Logo>
+            </Nav>
             <div>
                 <BlueHeading>Performing countries</BlueHeading>
 
                 <CountryList>
-                    {countryItems} 
+                    {performers.map(item => SetCountry(item))}
                 </CountryList>
             </div>  
 
