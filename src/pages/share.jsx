@@ -52,6 +52,7 @@ export default function Share() {
     return(
         <>
             <SharePage>
+                
                 <Nav>
                     <NavLink to="/countries">
                         <BackButton src={back}></BackButton>
@@ -74,12 +75,9 @@ export default function Share() {
             </SharePage>
 
             <ShareSection>
-
-
                 <NavLink to="/">
                     <WhiteButton><img src={share} alt="img" />Share</WhiteButton>
                 </NavLink>
-
             </ShareSection>
         </>
     )

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { getPoints, performers } from '../firebase.js';
-import { BrowserRouter, Route, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { 
     BlueHeading,
     CountriesPage,

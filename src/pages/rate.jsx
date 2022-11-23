@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { rate, performers, getPoints } from '../firebase.js';
-import { BrowserRouter, Route, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import back from "../images/back.png"
 import logo from "../images/logo.png"
 import { 
