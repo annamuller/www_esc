@@ -146,12 +146,12 @@ export const BackButton = styled.img`
 `;
 
 
-export const WhiteButton = styled.button`
+export const WhiteButton = styled.a`
 
     border: none;
     background: none;
     text-align: center;
-
+    text-decoration: none;
     color: white;
     font-weight: 800;
     font-size: 20px;

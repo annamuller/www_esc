@@ -48,6 +48,7 @@ export default function Share() {
     function bottomFive(country) {
         return <li key={country}>{country} </li>
     };
+
     
     return(
         <>
@@ -75,9 +76,10 @@ export default function Share() {
             </SharePage>
 
             <ShareSection>
-                <NavLink to="/">
-                    <WhiteButton><img src={share} alt="img" />Share</WhiteButton>
-                </NavLink>
+
+
+                <WhiteButton href="https://www.facebook.com/sharer/sharer.php?u=https%3A//ryhma-d6a0a.web.app/share"><img src={share} alt="img"/>Share</WhiteButton>
+
             </ShareSection>
         </>
     )
