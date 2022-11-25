@@ -1,7 +1,5 @@
-//import firebase from "firebase/app";
-import { initializeApp } from "firebase/app"; //"https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-import { getFirestore, collection, getDocs } from "firebase/firestore"; //"https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
-
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const firebaseApp = {
 
@@ -22,6 +20,7 @@ const firestore = getFirestore(app);
 const listOfCountries = await getDocs(collection(firestore, "countries"));
 var performers = [];
 
+// Function to create an Array for performers with their points and other information
 function initPerformers() {
     var points = "0,0,0,0"
     listOfCountries.forEach((doc) => {
@@ -38,16 +37,16 @@ function initPerformers() {
     })
 }
 
+// Creates the performers array if it doesn't exist yet
 if (!performers.length) {initPerformers()};
 
 
-// Function for setting the cookies. Sets expiration date to today +30 days
+// Function for setting the cookies. Sets expiration date to 30 days from today
 function setCookie(id, cValue) {
     let date = new Date();
     date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
     const expires = "expires=" + date.toUTCString();
     document.cookie = id + cValue + ";" + expires + "; path=/";
-    //countryArr[id] = cValue;
 }
 
 // Initializes the cookies with countries from Firestore database and sets their points. If the cookies exist already,
@@ -59,10 +58,10 @@ function initCookie() {
             var country = doc.id;
             setCookie(country, "=0,0,0,0");
         })
-        
     }
 }
 
+// Function to resetting scores. At the moment unused.
 function resetCookie() {
     listOfCountries.forEach((doc) => {
         var country = doc.id;
@@ -70,6 +69,7 @@ function resetCookie() {
     })
 }
 
+// Takes a country id as a String as the parameter and returns its points as a String
 function getPoints(id) {
     var countries = document.cookie.split(";");
     var palautus = ""
@@ -84,21 +84,20 @@ function getPoints(id) {
 
 // Function to rate countries. Will update the the cookie for the selected country with updated points.
 function rate(id, show, sing, song) {
-    //var maa = valtio.toString();
     var total = Number(0);
-    var show = show.toString();//document.getElementById("show").value.toString();
+    var show = show.toString();
     if (show.length === 0) {
         show = "0"}
         else {
             total += Number(show);
         }
-    var sing = sing.toString();//document.getElementById("sing").value.toString();
+    var sing = sing.toString();
     if (sing.length === 0) {
         sing = "0"}
         else {
             total += Number(sing);
         }
-    var song = song.toString(); //document.getElementById("song").value.toString();
+    var song = song.toString();
     if (song.length === 0) {song = "0"}
     else {
         total += Number(song);
@@ -122,7 +121,6 @@ function rank() {
         var id = performer[0].replace(/\s/g, "");
         var points = performer[1];
         var p = performers.find((country => country.id === id));
-        //c.points = points;
         points = points.split(",");
         points = Number(points[points.length - 1]);
         var name = p.country;
@@ -137,17 +135,5 @@ function rank() {
 
 export {rank, rate, setCookie, getPoints, performers}
 
+// Creates the cookie document.
 initCookie();
-/*
-function getCountries() {
-    var countries = [];
-    listOfCountries.array?.forEach(element => {
-        var country = element.id;
-        countries[country] = "0,0,0,0";
-    });
-       
-    return countries
-};*/
-
-//export const setOfCountries = getCountries();
-//window.querySnapshot = await getDocs(countries);
